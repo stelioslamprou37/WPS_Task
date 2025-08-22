@@ -1,0 +1,30 @@
+task: >
+  You have been given subsampled FASTQ data from Worm Perturb-Seq (WPS) experiments.
+  Using the provided FASTQ files, answer the following questions based on pipeline stages.
+
+questions:
+  - id: q1
+    stage: quality_control
+    text: "How many reads passed quality filtering in sample SRR25848640?"
+    answer_type: integer_exact
+
+  - id: q2
+    stage: alignment
+    text: "What was the percentage of reads mapped to the C. elegans genome in SRR25848640?"
+    answer_type: numeric_percent
+    tolerance: 0.5
+
+  - id: q3
+    stage: UMI_deduplication
+    text: "After UMI deduplication, how many unique transcripts were detected in SRR25848640?"
+    answer_type: integer_exact
+
+  - id: q4
+    stage: cell_filtering
+    text: "How many cells remained after quality filtering (e.g. removing low-quality cells) in SRR25848640?"
+    answer_type: integer_exact
+
+  - id: q5
+    stage: gene_quantification
+    text: "Which gene had the highest expression count in SRR25848640 after all processing steps?"
+    answer_type: string_exact
